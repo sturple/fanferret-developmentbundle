@@ -1,0 +1,24 @@
+{
+    "name": "sturple/fanferret-developmentbundle",
+    "description": "Development Bundle to create templates and test functions",
+    "type": "symfony-bundle",
+    "keywords": ["survey", "hotel", "symfony"],
+    "homepage": "https://github.com/sturple/fanferret-developmentbundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shawn Turple",
+            "email": "shawn@turple.ca"
+        }
+    ],
+    "require": {
+
+    },
+    "minimum-stability": "dev",
+    "target-dir": "FanFerret/Bundle/DevelopmentBundle",
+    "autoload" : {
+        "psr-0" : {"FanFerret\\Bundle\\DevelopmentBundle" : ""}
+    }
+
+
+}

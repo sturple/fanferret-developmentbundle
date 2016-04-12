@@ -1,1 +1,306 @@
- 
+company:
+    name: ''
+    timeZone: ''
+    address1: ''
+    address2: ''
+    city: ''
+    province: ''
+    postal: ''
+    country: ''
+    email: ''
+    website: ''
+    parentCompany: ''
+    meta:
+        yelp: 'https://www.yelp.ca/writeareview/biz/oMpJ0OR40xQKnoexUr_j-A?return_url=%2Fbiz%2FoMpJ0OR40xQKnoexUr_j-A'
+
+
+questionGroup:
+    -
+        id: standard
+        title: "Standandard Question Set"
+        slug: general
+        params:
+            start:
+                title: 'Enter Staff Number'
+                subtitle: ''
+            finish:
+                default:
+                    title: 'Thank You'
+                    subtitle: '<div class="small-text">If you are completing this survey upon checkout,<span class="visible-lg-block visible-md-inline visible-sm-inline visible-xs-inline"> please return this tablet to the front desk.</span></div>'
+                condition1:
+                    title: 'All Done!'
+                    subtitle: '<div class="small-text">Thank you for taking the time to provide your feedback.</div>'
+                    content: '<div class="content">Do you have time to post a quick review on Yelp?<div>Click the button below to get started:</div></div>'
+                    button:
+                        text: 'Submit Yelp Review'
+                        class: 'btn btn-primary btn-md'
+                        link: '{{yelp}}'
+    -
+        id: commentcard
+        title: "Comment Card Version"
+        slug: "commentcard"
+        params:
+            start:
+                title: "Enter Room Number"
+            finish:
+                default:
+                    title: 'Thank You'
+
+
+
+questions:
+    commentcard:
+        -
+            status: active
+            type: group
+            id: 1
+            order: 1
+            title: 'Standard questions'
+            subtitle: 'subtitle for standard questions'
+            set: standard
+
+        -
+            status: active
+            type: group
+            id: 2
+            order: 2
+            title: 'Restaurant Questions'
+            subtitle: ''
+            set: restaurant
+
+
+    restaurant:
+        -
+            status: active
+            type: group
+            id: 3
+            order:
+            title: Restaurants
+            subtitle: '72 West & Plunge Bar'
+            set: west72
+        -
+            status: active
+            type: group
+            id: 4
+            order:
+            title: Restaurants
+            subtitle: 'Parallel23'
+            set: parallel23
+    west72:
+        -
+            status: active
+            type: rating
+            title: "Friedly and Efficient Service"
+            subtitle:
+            order:
+            rules:
+        -
+            status: active
+            type: rating
+            title: "Quality of Food and Beverage"
+            subtitle:
+            order:
+            rules:
+        -
+            status: active
+            type: rating
+            title: "Atmosphere"
+            subtitle:
+            order:
+            rules:
+
+    parallel23:
+        -
+            status: active
+            type: rating
+            title: "Friedly and Efficient Service"
+            subtitle:
+            order:
+            rules:
+        -
+            status: active
+            type: rating
+            title: "Quality of Food"
+            subtitle:
+            order:
+            rules:
+
+        -
+            status: active
+            type: rating
+            title: "Quality of Beverage"
+            subtitle:
+            order:
+            rules:
+        -
+            status: active
+            type: rating
+            title: "Variety of Menu Options"
+            subtitle:
+            order:
+            rules:
+        -
+            status: active
+            type: rating
+            title: "Timeliness of Dining Experience"
+            subtitle:
+            order:
+            rules:
+        -
+            status: active
+            type: rating
+            title: "Atmosphere"
+            subtitle:
+            order:
+            rules:
+
+
+    standard:
+
+        -
+            status: active
+            type: rating
+            title: "How was your experience with {{company.name}} today?"
+            subtitle:
+            order:
+            rules:
+                -
+                    type: 'email'
+                    trigger: 3
+                    function: FanFerret\Rules\email
+                    params:
+                        to:
+                            - shawn.turple@fifthgeardev.com
+                        bcc:
+                            - webmaster@fifthgeardev.com
+                        subject: "Customer Survey Issue: Experience (Not Positive)"
+                        template:
+                            html: "FanFerretRulesEmail:Email:email-notification.html.twig"
+                            text: "FanFerretRulesEmail:Email:email-notification.html.txt"
+                -
+                    type: 'reporting'
+                    trigger: 4.5
+                    function: FanFerret\Rules\reporting
+
+        -
+            status: active
+            title: 'Were the staff that assisted you today friendly?'
+            type: rating
+            field: question2
+            trigger: 4.5
+            email:
+                trigger: 3
+                subject: "Customer Survey Issue: Friendly Staff (No)"
+                recipient:
+                    to:
+                        - shawn.turple@fifthgeardev.com
+        -
+            status: active
+            title: 'Were the staff that assisted you today knowledgeable?'
+            type: rating
+            field: question3
+            trigger: 4
+            email:
+                trigger: 3
+                subject: "Customer Survey Issue: Knowledgeable Staff (No)"
+                recipient:
+                    to:
+                        - shawn.turple@fifthgeardev.com
+        -
+            status: active
+            title: 'How would you rate the quality the jewellery service we performed?'
+            type: rating
+            field: question4
+            trigger: 4
+            email:
+                trigger: 3
+                subject: "Customer Survey Issue: Service Quality (Not Positive)"
+                recipient:
+                    to:
+                        - shawn.turple@fifthgeardev.com
+        -
+            status: active
+            title: 'How would you rate the value of the jewellery service we performed?'
+            type: rating
+
+            trigger: 4
+            email:
+                trigger: 3
+                subject: "Customer Survey Issue: Service Value (Not Positive)"
+                recipient:
+                    to:
+                        - shawn.turple@fifthgeardev.com
+        -
+            status: active
+            title: 'Did you experience any issue(s) that we were unable to resolve?'
+            type: polar
+
+            trigger: 90
+            negative: true
+            email:
+                trigger: yes
+                subject: "Customer Survey Issue: Unresolved Issue (Yes)"
+                recipient:
+                    to:
+                        - shawn.turple@fifthgeardev.com
+        -
+            status: active
+            title: "Would you recommend {{company.name}} to a friend or family member?"
+            type: polar
+            rules:
+                -
+                    type: reporting
+                    trigger: 90
+                    function: FanFerret\Rules\reporting
+                -
+                    type: email
+                    trigger: yes
+                    function: FanFerret\Rules\Email
+                    params:
+                        to:
+                            - shawn.turple@fifthgeardev.com
+                        bcc:
+                            - webmaster@fifthgeardev.com
+                        subject: "Customer Survey Issue: Unresolved Issue (Yes)"
+                -
+                    type: conditional
+                    trigger: yes
+                    function: FanFerret\Rules\ShowHiddenText
+                    params:
+                        html: "<div>Thank you we credit your {{company.name}} account with $25 for each new referral</div>"
+
+        -
+            status: active
+            title: "Would you like to be included in our monthly {{company.name}} Rewards News Letter"
+            type: polar
+            rules:
+                -
+                    type: conditional
+                    trigger: yes
+                    function: FanFerret\Rules\Newsletter
+                    params:
+                        html:
+                        url: 'http://thisisnewsletterurl.com'
+                        fields:
+                            email:
+                                label: Email
+                                name: 'emailfieldname'
+                            name:
+                                label: 'Name'
+                                name: 'namefieldname'
+                            submit:
+                                label: 'Sign Up'
+
+
+
+        -
+            status: active
+            title:  '<div style="font-size: 50px;">Do you have any questions or suggestions that would enable us to improve?</div>'
+            type: open
+            field: question8
+            email:
+                trigger: true
+                subject: "Customer Survey Comment or Suggestion"
+                recipient:
+                    to:
+                        - shawn.turple@fifthgeardev.com

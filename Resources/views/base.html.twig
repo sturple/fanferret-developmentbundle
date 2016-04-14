@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            
+            <link href="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css') }}" rel="stylesheet" />
+            <link href="{{ asset('https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css') }}" rel="stylesheet" />
+            <link href="{{ asset('bundles/fanferretdevelopment/css/style.css') }}" rel="stylesheet" />
+            
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+            <script type="text/javascript" src="{{ asset('https://code.jquery.com/jquery-1.12.3.min.js') }}" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
+            <script type="text/javascript" src="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js') }}" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="{{ asset('bundles/fanferretdevelopment/js/script.js') }}"></script>
+            
+        {% endblock %}
+    </body>
+</html>

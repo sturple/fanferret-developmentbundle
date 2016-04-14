@@ -1,0 +1,26 @@
+{
+  "name": "fanferret-developmentbundle",
+  "version": "1.0.0",
+  "description": "Fanferret Development Bundle",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sturple/fanferret-developmentbundle.git"
+  },
+  "keywords": ["survey", "hotel", "symfony"],
+  "author": "Shawn Turple original",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sturple/fanferret-developmentbundle/issues"
+  },
+  "homepage": "https://github.com/sturple/fanferret-developmentbundle#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-less": "^1.2.0",
+    "grunt-contrib-watch": "^0.6.1"
+
+  }
+}

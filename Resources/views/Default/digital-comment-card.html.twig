@@ -9,6 +9,7 @@
     <div class="well">
      {% for question in questions.standard %}
         {# This is where you would include your form/fields #}
+        {% include "FgmsSurveyBundle:Default:forms/field.html.twig" with { 'question' : question, 'loop' : loop } %}
         {{dump(question)}}
     {% endfor %}           
     </div>

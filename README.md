@@ -47,6 +47,7 @@ class AppKernel extends Kernel
 
 ```yaml
 fan_ferret_development:
-    resource: "@FanFerretDevelopmentBundle/Resources/config/routing.yml"
-    prefix:   /dev/
+    resource: "@FanFerretDevelopmentBundle/Controller/"
+    type: annotation
+    prefix: /dev
 ```

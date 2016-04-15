@@ -1,7 +1,27 @@
 {% extends 'FanFerretDevelopmentBundle::base.html.twig' %}
 
-{% block title %}Guets Comment Card{% endblock %}
+{% block title %}Digital Guest Comment Card{% endblock %}
 {% block body %}
-<h1>Guest Comment Card</h1>
-{{dump()}}
-{% endblock body %} 
+<div class="container">
+    <h1>Digital Guest Comment Card</h1>
+    {{dump()}}
+    <h2>Questions</h2>
+    <div class="well">
+     {% for question in questions.standard %}
+        {# This is where you would include your form/fields #}
+        {{dump(question)}}
+    {% endfor %}           
+    </div>
+    
+</div>
+
+{% endblock body %}
+{% block stylesheets %}
+    <link href="{{ asset('bundles/fanferretdevelopment/vendor/3epnm/drumjs/css/drum.css') }}" rel="stylesheet" />
+    {{parent()}}
+{% endblock %}
+{% block javascripts %}
+    {{parent()}}
+    <script type="text/javascript" src="{{ asset('bundles/fanferretdevelopment/vendor/3epnm/drumjs/js/drum.js') }}"></script>
+{% endblock %}
+

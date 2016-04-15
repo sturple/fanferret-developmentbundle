@@ -1,14 +1,14 @@
 company:
-    name: ''
-    timeZone: ''
-    address1: ''
+    name: 'FanFerret'
+    timeZone: 'America/Vancouver'
+    address1: 'Dallas Road'
     address2: ''
-    city: ''
-    province: ''
-    postal: ''
-    country: ''
-    email: ''
-    website: ''
+    city: 'Victoria'
+    province: 'British Columbia'
+    postal: 'V8Y 0Y0'
+    country: 'Canada'
+    email: 'info@fanferret.com'
+    website: 'http://www.fanferret.com'
     parentCompany: ''
     meta:
         yelp: 'https://www.yelp.ca/writeareview/biz/oMpJ0OR40xQKnoexUr_j-A?return_url=%2Fbiz%2FoMpJ0OR40xQKnoexUr_j-A'
@@ -35,6 +35,7 @@ questionGroup:
                         text: 'Submit Yelp Review'
                         class: 'btn btn-primary btn-md'
                         link: '{{yelp}}'
+
     -
         id: commentcard
         title: "Comment Card Version"
@@ -293,14 +294,44 @@ questions:
 
 
 
-        -
-            status: active
-            title:  '<div style="font-size: 50px;">Do you have any questions or suggestions that would enable us to improve?</div>'
-            type: open
-            field: question8
-            email:
-                trigger: true
-                subject: "Customer Survey Comment or Suggestion"
-                recipient:
-                    to:
-                        - shawn.turple@fifthgeardev.com
+
+
+configuration:
+    -
+        type: image
+        name: logo
+        value : '/some/url/logo.jpg'
+        
+    -
+        type: image
+        name: logoEmail
+        value: '/some/url/logo-email.jpg'
+    -
+        type: css
+        name: 'btnColor'
+        value: 'blue'
+    -
+        type: css
+        name: 'btnColorHover'
+        value: 'red'
+    -
+        type: css
+        name: 'btnColorActive'
+        value: 'green'
+    -
+        type: css
+        name: 'primaryFontFamily'
+        value: 'Roboto'
+    -
+        type: css
+        name: 'secondaryFontFamily'
+        value: 'Sans Serif'
+    -
+        type: 'Should case error on type'
+        name: test
+        value: error
+    -
+        type: css
+        value: 'should cause error on no name'
+
+        

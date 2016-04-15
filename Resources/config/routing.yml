@@ -1,7 +1,0 @@
-fan_ferret_development_homepage:
-    path:     /
-    defaults: { _controller: FanFerretDevelopmentBundle:Default:index }
-
-fan_ferret_development_template:
-    path: /template/{twigname}/
-    defaults: { _controller: FanFerretDevelopmentBundle:Default:template }
